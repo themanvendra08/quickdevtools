@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/table";
 
 interface ClaimsTableProps {
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 export function ClaimsTable({ data }: ClaimsTableProps) {

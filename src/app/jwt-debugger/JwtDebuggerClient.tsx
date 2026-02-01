@@ -18,7 +18,7 @@ export function JwtDebuggerClient() {
       const decodedPayload = jwtDecode(value);
       setHeader(decodedHeader);
       setPayload(decodedPayload);
-    } catch (error) {
+    } catch {
       setHeader({});
       setPayload({});
     }

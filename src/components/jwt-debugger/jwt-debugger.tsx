@@ -14,7 +14,9 @@ export function JwtDebugger() {
   const [token, setToken] = useState(
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30",
   );
-  const [header, setHeader] = useState<jose.JWTHeader>({});
+  const [header, setHeader] = useState<jose.ProtectedHeaderParameters>(
+    {} as jose.ProtectedHeaderParameters,
+  );
   const [payload, setPayload] = useState<jose.JWTPayload>({});
   const [secret, setSecret] = useState(
     "a-string-secret-at-least-256-bits-long",
@@ -51,10 +53,10 @@ export function JwtDebugger() {
             const encoder = new TextEncoder();
             await jose.jwtVerify(token, encoder.encode(secret));
             setIsSignatureVerified(true);
-          } catch (e) {
+          } catch {
             setIsSignatureVerified(false);
           }
-        } catch (error) {
+        } catch {
           setIsValid(false);
           setIsSignatureVerified(false);
           setHeader({});
@@ -90,8 +92,10 @@ export function JwtDebugger() {
         .setProtectedHeader(parsedHeader)
         .sign(new TextEncoder().encode(secret));
       setGeneratedToken(jws);
-    } catch (error: any) {
-      setGeneratedToken(`Error: ${error.message}`);
+    } catch (error: unknown) {
+      setGeneratedToken(
+        `Error: ${error instanceof Error ? error.message : "Unknown error"}`,
+      );
     }
   };
 
