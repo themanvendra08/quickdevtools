@@ -3,7 +3,6 @@ export { JsonInput } from "./JsonInput";
 export { JsonDisplay } from "./JsonDisplay";
 export { CompareView } from "./CompareView";
 export { ViewTab } from "./ViewTab";
-export { ThemeToggle } from "./ThemeToggle";
 export { JsonToolbar } from "./JsonToolbar";
 export { JsonStatistics } from "./JsonStatistics";
 export { JsonSearch } from "./JsonSearch";

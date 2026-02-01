@@ -37,7 +37,7 @@ export const JSON_VIEWER_CONSTANTS = {
   },
   STYLES: {
     CONTAINER_MAX_WIDTH: {
-      VIEW: "max-w-6xl",
+      VIEW: "max-w-full",
       COMPARE: "max-w-full",
     },
     TEXTAREA_ROWS: 10,

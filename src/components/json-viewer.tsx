@@ -11,7 +11,6 @@ import {
   ViewTab,
   CompareView,
   JsonDisplay,
-  ThemeToggle,
   JsonStatistics,
   KeyboardShortcuts,
 } from "./json-viewer/index";
@@ -63,31 +62,6 @@ export default function JsonViewer() {
             : JSON_VIEWER_CONSTANTS.STYLES.CONTAINER_MAX_WIDTH.VIEW
         )}
       >
-        {/* Header Section */}
-        <div className="text-center space-y-6">
-          <div className="flex items-center justify-between">
-            <div className="flex-1" />
-            <div className="flex-1 text-center space-y-3">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted rounded-full border border-border">
-                <div className="w-2 h-2 bg-muted-foreground rounded-full" />
-                <span className="text-sm font-medium text-muted-foreground">
-                  JSON Viewer Pro
-                </span>
-              </div>
-              <h1 className="text-4xl font-semibold text-foreground">
-                {JSON_VIEWER_CONSTANTS.TITLES.JSON_VIEWER}
-              </h1>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Transform your JSON data with our professional-grade viewer.
-                Clean, fast, and feature-rich.
-              </p>
-            </div>
-            <div className="flex-1 flex justify-end">
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-
         {/* Main Content Card */}
         <div className="bg-card rounded-2xl border border-border shadow-lg">
           <div className="p-8">
