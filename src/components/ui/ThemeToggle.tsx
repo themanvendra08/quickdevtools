@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -12,7 +14,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
   React.useEffect(() => {
     // Check system preference
     const isDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
     setIsDark(isDarkMode);
 
@@ -44,7 +46,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
         "transition-colors duration-200",
         "bg-background hover:bg-muted",
         "border-border",
-        className
+        className,
       )}
     >
       <div className="flex items-center gap-2">
