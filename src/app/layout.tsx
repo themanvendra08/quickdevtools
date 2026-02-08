@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Darker_Grotesque } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-import { Navbar } from "@/components/ui/navbar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AdSense from "@/components/adsense/AdSense";
 
 const geistSans = Geist({
@@ -36,11 +37,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${darkerGrotesque.variable} antialiased`}
       >
-        <Toaster richColors position="top-right" />
-        <Navbar />
-        {children}
-        {/* TODO: Replace with your own Google AdSense publisher ID */}
-        <AdSense publisherId="ca-pub-xxxxxxxxxxxxxxxx" />
+        <SidebarProvider>
+          <AppSidebar />
+          <div className="flex-1 flex flex-col min-h-screen">
+            <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+              <SidebarTrigger />
+            </header>
+            <Toaster richColors position="top-right" />
+            <main className="flex-1 p-6 md:p-8 overflow-y-auto">
+              {children}
+              <div className="mt-8">
+                {/* TODO: Replace with your own Google AdSense publisher ID */}
+                <AdSense publisherId="ca-pub-xxxxxxxxxxxxxxxx" />
+              </div>
+            </main>
+          </div>
+        </SidebarProvider>
       </body>
     </html>
   );
