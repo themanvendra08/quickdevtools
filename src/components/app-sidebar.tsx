@@ -1,21 +1,7 @@
 "use client";
 
-import {
-  Calendar,
-  Home,
-  Inbox,
-  Search,
-  Settings,
-  LayoutDashboard,
-  FileJson,
-  Key,
-  FileDiff,
-  FileText,
-  FileArchive,
-  Image,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { tools } from "@/config/tools";
+import { LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -42,36 +28,13 @@ const items = [
     url: "/",
     icon: LayoutDashboard,
   },
-  {
-    title: "JSON Formatter",
-    url: "/json-formatter",
-    icon: FileJson,
-  },
-  {
-    title: "JWT Debugger",
-    url: "/jwt-debugger",
-    icon: Key,
-  },
-  {
-    title: "Diff Checker",
-    url: "/diff-checker",
-    icon: FileDiff,
-  },
-  {
-    title: "Text to PDF",
-    url: "/text-to-pdf",
-    icon: FileText,
-  },
-  {
-    title: "PDF Compressor",
-    url: "/pdf-compressor",
-    icon: FileArchive,
-  },
-  {
-    title: "Image Compressor",
-    url: "/image-compressor",
-    icon: Image,
-  },
+  ...tools
+    .map((tool) => ({
+      title: tool.title,
+      url: tool.href,
+      icon: tool.icon,
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title)),
 ];
 
 export function AppSidebar() {
