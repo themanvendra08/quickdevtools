@@ -1,0 +1,2 @@
+﻿src/components/color-extractor/color-extractor.tsx(11,45): error TS2307: Cannot find module '@/components/ui/tabs' or its corresponding type declarations.
+src/components/color-extractor/color-extractor.tsx(227,37): error TS7006: Parameter 'v' implicitly has an 'any' type.

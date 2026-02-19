@@ -12,6 +12,7 @@ interface ToolCardProps {
   description: string;
   href: string;
   icon: LucideIcon;
+  tags?: string[];
 }
 
 export function ToolCard({
@@ -19,6 +20,7 @@ export function ToolCard({
   description,
   href,
   icon: Icon,
+  tags,
 }: ToolCardProps) {
   return (
     <Link href={href}>
@@ -32,6 +34,18 @@ export function ToolCard({
           </CardTitle>
           <CardDescription>{description}</CardDescription>
         </CardHeader>
+        {tags && tags.length > 0 && (
+          <div className="px-6 pb-4 flex flex-wrap gap-2 mt-auto">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </Card>
     </Link>
   );

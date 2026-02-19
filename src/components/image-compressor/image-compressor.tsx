@@ -1,9 +1,5 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { useDropzone } from "react-dropzone";
-import imageCompression from "browser-image-compression";
-import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -20,17 +17,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
-import {
-  Download,
-  Upload,
-  RefreshCw,
-  AlertCircle,
-  FileImage,
-  Trash2,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
+import imageCompression from "browser-image-compression";
+import { Download, FileImage, Trash2, Upload } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { useDropzone } from "react-dropzone";
 import { toast } from "sonner"; // Assuming sonner is installed from package.json
 
 interface CompressionOptions {
